@@ -13,14 +13,43 @@ Excerpt from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+U
 >The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
 ## Study Design
-1. The raw data was downloaded and the following files unziped:
-File|Description (from original ReadMe)
----|----
-subject_train.txt|*Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.*
-X_train.txt|*Training set*
-y_train.txt|*Training labels*
-subject_test.txt|*Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.*
-x_test.txt|*Test set*
-y_test.txt|*Test labels*
-features.txt|*List of all features*
-activity_labels.txt|*Links the class labels with their activity name*
+The raw data was downloaded and the following files unziped:
+
+| File | Description (from original ReadMe) |
+| --- | ---- |
+| subject_train.txt | *Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.* |
+| X_train.txt | *Training set* |
+| y_train.txt | *Training labels* |
+| subject_test.txt | *Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.* |
+| x_test.txt | *Test set* |
+| y_test.txt | *Test labels* |
+| features.txt | *List of all features* |
+| activity_labels.txt | *Links the class labels with their activity name* |
+
+1. Column labels were applied
+1. Three files from each set were combined(x_*.txt, y_*.txt, subject_*.txt)
+1. The data sets were merged
+1. A subset of columns containing Mean or Standard Deviation were saved to a new table
+1. Column Labels were modified for readability
+1. A tidy dataset was created by calculating the mean for each measure, because everyone loves an average of averages, right?
+1. Activity labels were added to both data tables
+1. The user is prompted to select a save location
+1. The tidy data is saved to the location (if selected)
+
+## Variables
+
+Variable | Description
+---|---
+**data_tidy** | final tidy data, comprised of IDs and average for other columns
+**data_slim** | merged data with limited columns (ID, mean, std dev)
+data_merged | data_test & data_train merged
+data_train | combined training data (subj_test, subj_test_x, subj_test_y)
+data_test | combined test data (subject_train.txt, x_train.txt, y_train.txt)
+activ_cols | activity row labels for y files (activity_labels.txt)
+features_cols | column labels for x files (features.txt)
+subj_test | subject_test.txt
+subj_test_x | x_test.txt
+subj_test_y | y_test.txt
+subj_train | subject_train.txt
+subj_train_x | x_train.txt
+subj_train_y | y_train.txt
