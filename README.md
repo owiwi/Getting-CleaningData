@@ -6,7 +6,7 @@ The script retrieves data and transforms it before saving a tidy dataset.  See C
 ## Files included
 File | Description
 ---|---
-FinalProject.R | R script               
+run_analysis.R | R script               
 CodeBook.MD | Codebook detailing R script
 tidy.csv  | tidy data output
 
